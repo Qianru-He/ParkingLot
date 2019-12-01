@@ -6,16 +6,6 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
-	public ParkingBoy buildParkingBoy(){
-		ParkingLot aParkingLot = new ParkingLot(1);
-		ParkingLot bParkingLot = new ParkingLot(1);
-
-		ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-		parkingLots.add(aParkingLot);
-		parkingLots.add(bParkingLot);
-
-		return new ParkingBoy(parkingLots);
-	}
 
 	@Test
 	public void should_return_a_ticket_when_park_one_car(){
@@ -214,5 +204,16 @@ public class ParkingLotTest {
 
 		//then
 		assertNull(pickedCar);
+	}
+
+	private ParkingBoy buildParkingBoy(){
+		ParkingLot aParkingLot = new ParkingLot(1);
+		ParkingLot bParkingLot = new ParkingLot(1);
+
+		ArrayList<ParkingLot> parkingLots = new ArrayList<>();
+		parkingLots.add(aParkingLot);
+		parkingLots.add(bParkingLot);
+
+		return new ParkingBoy(parkingLots);
 	}
 }

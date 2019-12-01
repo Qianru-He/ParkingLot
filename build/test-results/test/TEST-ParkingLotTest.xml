@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParkingLotTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-12-01T08:51:26" hostname="Qianrus-MacBook-Pro.local" time="0.023">
+<testsuite name="ParkingLotTest" tests="16" skipped="0" failures="0" errors="0" timestamp="2019-12-01T08:59:13" hostname="Qianrus-MacBook-Pro.local" time="0.023">
   <properties/>
-  <testcase name="should_return_car_when_pick_up_after_park_a_car()" classname="ParkingLotTest" time="0.008"/>
-  <testcase name="should_return_null_when_use_a_fake_ticket_to_pick()" classname="ParkingLotTest" time="0.0"/>
-  <testcase name="should_return_true_when_parking_lot_not_full()" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="should_return_true_when_check_ticket_and_parking_lot()" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_car_when_pick_up_after_park_a_car()" classname="ParkingLotTest" time="0.01"/>
+  <testcase name="should_return_null_when_use_a_fake_ticket_to_pick()" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="should_return_true_when_parking_lot_not_full()" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_true_when_check_ticket_and_parking_lot()" classname="ParkingLotTest" time="0.001"/>
   <testcase name="should_return_a_ticket_when_park_one_car()" classname="ParkingLotTest" time="0.0"/>
   <testcase name="should_return_null_when_pick_parked_car()" classname="ParkingLotTest" time="0.0"/>
   <testcase name="should_return_null_when_parking_is_full_and_park_one_car()" classname="ParkingLotTest" time="0.0"/>
@@ -14,9 +14,9 @@
   <testcase name="should_not_full_when_create_a_new_parking_lot()" classname="ParkingLotTest" time="0.0"/>
   <testcase name="should_return_car_when_pick_up_parked_car()" classname="ParkingLotTest" time="0.0"/>
   <testcase name="should_return_null_when_all_parking_lot_is_full()" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="should_return_null_when_use_fake_ticket_pick_parked_car()" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="should_return_ticket_when_park_car()" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="should_return_ticket_when_parking_lot_can_park_one_car()" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="should_return_null_when_use_fake_ticket_pick_parked_car()" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_ticket_when_park_car()" classname="ParkingLotTest" time="0.0"/>
+  <testcase name="should_return_ticket_when_parking_lot_can_park_one_car()" classname="ParkingLotTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
