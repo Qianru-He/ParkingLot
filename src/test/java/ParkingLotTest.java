@@ -64,9 +64,12 @@ public class ParkingLotTest {
 		parkingLot.park(new Car());
 		//when
 		Car car = new Car();
-		Ticket ticket = parkingLot.park(car);
+
+		ParkingLotException parkingLotException = assertThrows(ParkingLotException.class,
+				() -> parkingLot.park(car));
+
 		//then
-		assertNull(ticket);
+		assertEquals("parking lot is full",parkingLotException.getMessage());
 	}
 
 	@Test
@@ -108,112 +111,5 @@ public class ParkingLotTest {
 		assertNull(car1);
 	}
 
-	@Test
-	public void should_return_ticket_when_park_car() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		Car car = new Car();
 
-		//when
-		Ticket ticket = boy.park(car);
-
-		//then
-		assertNotNull(ticket);
-	}
-
-	@Test
-	public void should_return_ticket_when_first_parking_lot_is_full_and_second_is_not_full() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		boy.park(new Car());
-
-		//when
-		Ticket ticket = boy.park(new Car());
-
-		//then
-		assertNotNull(ticket);
-	}
-
-	@Test
-	public void should_return_null_when_all_parking_lot_is_full() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		boy.park(new Car());
-		boy.park(new Car());
-
-		//when
-		Ticket ticket = boy.park(new Car());
-
-		//then
-		assertNull(ticket);
-	}
-
-	@Test
-	public void should_return_true_when_check_ticket_and_parking_lot() {
-		ParkingLot parkingLot = new ParkingLot(1);
-		Ticket ticket = parkingLot.park(new Car());
-
-		//given
-		boolean has = parkingLot.hasTicket(ticket);
-
-		//then
-		assertTrue(has);
-	}
-
-	@Test
-	public void should_return_car_when_pick_up_after_park_a_car() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		Car parkedCar = new Car();
-		Ticket ticket = boy.park(parkedCar);
-
-		//when
-		Car pickedCar = boy.pickUp(ticket);
-
-		//then
-		assertEquals(parkedCar, pickedCar);
-	}
-
-	@Test
-	public void should_return_car_when_pick_up_after_park_a_car_in_second_parking_lot() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		boy.park(new Car());
-
-		Car parkedCar = new Car();
-		Ticket ticket = boy.park(parkedCar);
-
-		//when
-		Car pickedCar = boy.pickUp(ticket);
-
-		//then
-		assertEquals(parkedCar, pickedCar);
-	}
-
-	@Test
-	public void should_return_null_when_use_a_fake_ticket_to_pick() {
-		//given
-		ParkingBoy boy = buildParkingBoy();
-		boy.park(new Car());
-
-
-		Ticket ticket = new Ticket(UUID.randomUUID());
-
-		//when
-		Car pickedCar = boy.pickUp(ticket);
-
-		//then
-		assertNull(pickedCar);
-	}
-
-	private ParkingBoy buildParkingBoy(){
-		ParkingLot aParkingLot = new ParkingLot(1);
-		ParkingLot bParkingLot = new ParkingLot(1);
-
-		ArrayList<ParkingLot> parkingLots = new ArrayList<>();
-		parkingLots.add(aParkingLot);
-		parkingLots.add(bParkingLot);
-
-		return new ParkingBoy(parkingLots);
-	}
 }

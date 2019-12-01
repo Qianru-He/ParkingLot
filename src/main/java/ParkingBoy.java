@@ -7,22 +7,22 @@ public class ParkingBoy {
 		this.parkingLots = parkingLots;
 	}
 
-	public Ticket park(Car car) {
-		for (ParkingLot parkingLot :parkingLots) {
-			Ticket ticket = parkingLot.park(car);
-			if (ticket != null) {
-				return ticket;
+	public Ticket park(Car car) throws ParkingLotException {
+		for (ParkingLot parkingLot : parkingLots) {
+			if (parkingLot.isFull()) {
+				continue;
 			}
+			return parkingLot.park(car);
 		}
-		return null;
+		throw new ParkingLotException("all parking lot is full");
 	}
 
 	public Car pickUp(Ticket ticket) {
-		for (ParkingLot parkingLot :parkingLots) {
-			if (parkingLot.hasTicket(ticket)) {
+		for (ParkingLot parkingLot : parkingLots) {
+			if (ticket != null && ticket.getParkingLotID().equals(parkingLot.getUuid())) {
 				return parkingLot.pickUp(ticket);
 			}
 		}
-		return null;
+		throw new ParkingLotException("invalid ticket");
 	}
 }
