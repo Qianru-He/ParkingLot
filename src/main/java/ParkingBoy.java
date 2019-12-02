@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ParkingBoy {
 	private ArrayList<ParkingLot> parkingLots;
@@ -6,7 +7,9 @@ public class ParkingBoy {
 	public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
 		this.parkingLots = parkingLots;
 	}
-
+	public List<ParkingLot> getParkingLots(){
+		return parkingLots;
+	}
 	public Ticket park(Car car) throws ParkingLotException {
 		for (ParkingLot parkingLot : parkingLots) {
 			if (parkingLot.isFull()) {

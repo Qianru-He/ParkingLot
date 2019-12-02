@@ -33,4 +33,7 @@ public class ParkingLot {
 	public Car pickUp(Ticket ticket) {
 		return cars.remove(ticket);
 	}
+	public int freeCapacity(){
+		return size-cars.size();
+	}
 }
