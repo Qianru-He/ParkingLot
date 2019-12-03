@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class SmartParkingBoy extends ParkingBoy{
+public class SmartParkingBoy extends GraduateBoy {
 	public SmartParkingBoy(ArrayList<ParkingLot> parkingLots) {
 		super(parkingLots);
 	}
@@ -15,18 +16,8 @@ public class SmartParkingBoy extends ParkingBoy{
 	}
 
 	private ParkingLot findBiggestCapacity(List<ParkingLot> parkingLots){
-		ParkingLot desParkingLot = null;
-		for (ParkingLot parkingLot : parkingLots) {
-			if (desParkingLot == null) {
-				desParkingLot = parkingLot;
-				continue;
-			}
-			if (desParkingLot.freeCapacity() < parkingLot.freeCapacity()) {
-				desParkingLot = parkingLot;
-			}
-
-		}
-		return desParkingLot;
+		Collections.sort(parkingLots);
+		return parkingLots.get(0);
 	}
 
 }

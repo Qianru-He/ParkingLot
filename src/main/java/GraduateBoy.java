@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingBoy {
+public class GraduateBoy {
 	private ArrayList<ParkingLot> parkingLots;
 
-	public ParkingBoy(ArrayList<ParkingLot> parkingLots) {
+	public GraduateBoy(ArrayList<ParkingLot> parkingLots) {
 		this.parkingLots = parkingLots;
 	}
 	public List<ParkingLot> getParkingLots(){

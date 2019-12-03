@@ -5,12 +5,12 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ParkingBoyTest {
+public class GraduateBoyTest {
 
 	@Test
 	public void should_return_ticket_when_park_car() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		Car car = new Car();
 
 		//when
@@ -23,7 +23,7 @@ public class ParkingBoyTest {
 	@Test
 	public void should_return_ticket_when_first_parking_lot_is_full_and_second_is_not_full() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		boy.park(new Car());
 
 		//when
@@ -36,7 +36,7 @@ public class ParkingBoyTest {
 	@Test
 	public void should_return_null_when_all_parking_lot_is_full() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		boy.park(new Car());
 		boy.park(new Car());
 
@@ -53,7 +53,7 @@ public class ParkingBoyTest {
 	@Test
 	public void should_return_car_when_pick_up_after_park_a_car() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		Car parkedCar = new Car();
 		Ticket ticket = boy.park(parkedCar);
 
@@ -67,7 +67,7 @@ public class ParkingBoyTest {
 	@Test
 	public void should_return_car_when_pick_up_after_park_a_car_in_second_parking_lot() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		boy.park(new Car());
 
 		Car parkedCar = new Car();
@@ -83,7 +83,7 @@ public class ParkingBoyTest {
 	@Test
 	public void should_return_null_when_use_a_fake_ticket_to_pick() {
 		//given
-		ParkingBoy boy = buildParkingBoy();
+		GraduateBoy boy = buildParkingBoy();
 		boy.park(new Car());
 		Ticket ticket = new Ticket(UUID.randomUUID());
 
@@ -95,7 +95,7 @@ public class ParkingBoyTest {
 		assertEquals("invalid ticket",parkingLotException.getMessage());
 	}
 
-	private ParkingBoy buildParkingBoy(){
+	private GraduateBoy buildParkingBoy(){
 		ParkingLot aParkingLot = new ParkingLot(1);
 		ParkingLot bParkingLot = new ParkingLot(1);
 
@@ -103,6 +103,6 @@ public class ParkingBoyTest {
 		parkingLots.add(aParkingLot);
 		parkingLots.add(bParkingLot);
 
-		return new ParkingBoy(parkingLots);
+		return new GraduateBoy(parkingLots);
 	}
 }
